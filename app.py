@@ -4,7 +4,7 @@ Jinja2 Documentation:    http://jinja.pocoo.org/2/documentation/
 Werkzeug Documentation:  http://werkzeug.pocoo.org/documentation/
 This file creates your application.
 """
-
+import os
 from flask import Flask, render_template
 
 app = Flask(__name__)
@@ -32,4 +32,4 @@ def about():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, port=8080)
+    app.run(debug=True, port=int(os.getenv("PORT", 8080)), host=os.getenv("IP","0.0.0.0"))
